@@ -2,6 +2,11 @@
 
 void arrayAndPointer(void);
 
+int arrayAsParam(int *q, int);
+
+int arrayAsParam2(int a[], int);
+
+int arrayParam3(int* start, int* end);
 
 void arrayAndPointer() {
 
@@ -61,4 +66,61 @@ void arrayAndPointer() {
 	int *ptr2 = arr + 3; //不指向数组的第一个元素而是使用数组第4个元素地址。这里写成 arr[3]是不正确了， 因为[]相当于解引用了。
 
 	printf("%d\n", *ptr2);
+
+	printf("----------------------\n");
+
+
+	int addSumResult = arrayAsParam(arr, 10);
+	int addSumResult2 = arrayAsParam2(arr, 10);
+
+	printf("addSumResult is %d \n", addSumResult);
+	printf("addSumResult is %d \n", addSumResult2);
+
+	//如果直接打印数组名的话那么会输出数组中所有元素的的字节值，输出指向他的指针还是指针自身的大小。
+	printf("addSumResult is %lu \n", (sizeof ptr));
+	printf("addSumResult is %lu \n", (sizeof arr));
+	printf("addSumResult is %lu \n", (sizeof &arr[0]));
+
+	printf("------------------------------\n");
+
+	int addSumResult3 =  arrayParam3(arr, arr + 10);
+	printf("addSumResult3 is %d \n", addSumResult3);
+	
+}
+
+
+
+/* 
+* 当数组作为参数传递的时候，函数的形参需要是一个指针或者是[]来进行声明都是正确的。
+* 
+* 下面两个都是正确的定义方式int [] 或者 int *都是正确的方式。	
+*/
+
+int arrayAsParam(int* pointer, int size) {
+	int sum = 0;
+	for (int i = 0; i < size ; i++)
+	{
+		sum += *(pointer + i);
+	}
+	return sum;
+}
+
+int arrayAsParam2(int pointer[], int size) {
+	int sum = 0;
+	for (int i = 0; i < size; i++)
+	{
+		sum += pointer[i];
+	}
+	return sum;
+}
+
+int arrayParam3(int* start, int* end) {
+	int sum = 0;
+
+	while (start < end) {
+		sum += *start;
+		start += 1;
+	}
+
+	return sum;
 }
