@@ -117,10 +117,14 @@ int arrayAsParam2(int pointer[], int size) {
 int arrayParam3(int* start, int* end) {
 	int sum = 0;
 
+	//优先级从这里来看 自增运算符号/自减/逻辑运算符号/&/*等等都是从右边到左边进行结合的。
+	//下面的代码会优先执行++之后才会进行*解引用。
 	while (start < end) {
-		sum += *start;
-		start += 1;
+		sum += *start++;
+		//start += 1;
 	}
+
+	//这里是可以进行优化的，直接修改成*start++
 
 	return sum;
 }

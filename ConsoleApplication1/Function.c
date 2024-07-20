@@ -19,7 +19,9 @@ int main() {
 
 	//arrayTest();
 
-	arrayAndPointer();
+	//arrayAndPointer();
+
+	pointerOprator();
 	return 0;
 }
 
