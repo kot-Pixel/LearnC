@@ -131,6 +131,7 @@
     <ClCompile Include="arrayAndppinter.c" />
     <ClCompile Include="Function.c" />
     <ClCompile Include="FunctionAndPointer.c" />
+    <ClCompile Include="pointeconst.c" />
     <ClCompile Include="pointerOprateor.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -21,7 +21,9 @@ int main() {
 
 	//arrayAndPointer();
 
-	pointerOprator();
+	//pointerOprator();
+
+	pointConst();
 	return 0;
 }
 
