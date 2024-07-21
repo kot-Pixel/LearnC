@@ -363,3 +363,10 @@ MigrationBackup/
 FodyWeavers.xsd
 /ConsoleApplication1/ConsoleApplication1.vcxproj.filters
 /ConsoleApplication1/ConsoleApplication1.vcxproj
+*.vcxproj
+*.vcxproj
+Pointer/ConsoleApplication1.vcxproj
+*.vcxproj
+/Pointer
+Pointer/ConsoleApplication1.vcxproj
+/Pointer
