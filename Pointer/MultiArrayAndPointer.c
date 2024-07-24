@@ -102,5 +102,21 @@ int main() {
     * */
     printf("array item access %d\n", *multiArray[1]);
 
+    //这里需要注意一下， [] 和 * 的优先级都是高于运算符的， 并且[]的优先级是高于 *的。
+
+    printf("----------------------------\n");
+
+    //使用多维数组的时候，直接使用单独的指针对象是不可以的。因为数组名称代表的不是一个单纯数的地址而是一个数组，所以在使用指针去指向多维度数组的
+    //时候，应该使用的是指针数组。
+    int *pt1;
+    pt1 = multiArray;
+    printf("array item access %d\n", pt1[0]);//单个指针变量是无法形容多维度数组的。
+
+    //需要指针数组在赋值的时候给多维数组，数组名代表一个长度的数组，所以这里写好成pointer (*pointer_name)[数组的长度]。其他的使用方式和使用
+    //数组名称时候差不多。注意下优先级的问题即可。
+    int (*pointerArrayMu)[4] = multiArray;
+    printf("array item access %d\n", *(*pointerArrayMu + 3)); //[1][3]
+
+
     return 0;
 }
