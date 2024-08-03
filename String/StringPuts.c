@@ -2,9 +2,11 @@
 #define STR "This is a string str"
 void stringPuts(void);
 
+int put1(const char*);
+
 void stringPuts(void) {
 	//字符串字面量
-	char* p = "This is a char pointer can express array";
+	const char* p = "This is a char pointer can express array";
 	//字符串数组
 	char array[] = "This is a array is pointer named";
 	// puts 函数和printf()函数一样都是定义在的stdio.h下的函数，作用就是用来输出字符串并且自动的换行。
@@ -49,4 +51,26 @@ void stringPuts(void) {
 
 	// "dsadsads" 字面量就是代表存储字面量的地址。
 	printf("%p %s %c", "2aaaa", "wwwww", *"dsadsads");
+
+	printf(p);
+
+	//这个字符数组并不是字符串。字符串需要在的字符数组的结尾加上\0表示数组的结束。
+	//char* str[] = { '1','2', '3' };
+
+	//printf(str);
+
+	int size = put1(p);
+
+	printf("size is %d", size);
+}
+
+int put1(const char *str)
+{
+	int count = 0;
+	while (*str != '\0') {
+		putchar(*str++);
+		count += 1;
+	}
+
+	return count;
 }
